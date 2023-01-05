@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require 'Classes/User.php';
 
 
@@ -9,6 +10,11 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
     $newuser = new User();
     $newuser->connect($login,$password);
+    $var_return = $newuser->connect($login,$password);;
+
+    foreach($var_return as $message){
+        echo $message;
+    }
 }
 
 
@@ -36,6 +42,8 @@ if(isset($_POST['submit'])){
             <input type="submit" value="Se connecter" name="submit">
 
         </form>
+
+        
     </main>
 </body>
 </html>

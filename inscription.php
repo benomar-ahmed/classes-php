@@ -12,11 +12,21 @@ if(isset($_POST['submit'])){
     $firstname = $_POST['Firstname'];
     $lastname = $_POST['Lastname'];
     $email = $_POST['email'];
+    $verify = $_POST['verify-password'];
 
-    $newuser = new User();
-    $newuser->register($login,$password,$email,$firstname,$lastname);
-    $var_return = $newuser->register($login,$password,$email,$firstname,$lastname);
-    var_dump($var_return);
+    
+
+
+    if($password == $verify){
+        $newuser = new User();
+        $newuser->register($login,$password,$email,$firstname,$lastname);
+        $var_return = $newuser->register($login,$password,$email,$firstname,$lastname);
+        var_dump($var_return);
+    }
+
+    else {
+        echo "Les mot de passe ne sont pas identiques !";
+    }
 }
 
 
@@ -38,22 +48,26 @@ if(isset($_POST['submit'])){
         <form action="" method="post">
 
             <label for="login">Login :</label>
-            <input type="text" name="login" id="">
+            <input type="text" name="login" id="" required="required">
 
             <label for="firstname">Firstname :</label>
-            <input type="text" name="Firstname" id="">
+            <input type="text" name="Firstname" id="" required="required">
 
             <label for="lastname">Lastname :</label>
-            <input type="text" name="Lastname" id="">
+            <input type="text" name="Lastname" id="" required="required">
 
             <label for="email">Email :</label>
-            <input type="email" name="email" id="">
+            <input type="email" name="email" id="" required="required">
 
             <label for="password">Mot de passe :</label>
-            <input type="password" name="password" id="">
+            <input type="password" name="password" id="" required="required">
+
+            <label for="verify-passsword">Retapez votre mot de passe :</label>
+            <input type="password" name="verify-password" required="required">
 
             <input type="submit" value="Envoyez" name="submit">
         </form>
+
     </main>
 </body>
 </html>
