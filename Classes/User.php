@@ -74,7 +74,11 @@ class User{
     }
 
 
-
+    public function disconnect()
+    {
+        session_destroy();
+        header("Location: connexion.php");
+    }
 
 
 }

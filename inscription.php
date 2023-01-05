@@ -44,6 +44,9 @@ if(isset($_POST['submit'])){
     <title>Inscription</title>
 </head>
 <body>
+
+    <?php require 'header.php' ?>
+
     <main>
         <form action="" method="post">
 

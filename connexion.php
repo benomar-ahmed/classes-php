@@ -30,6 +30,8 @@ if(isset($_POST['submit'])){
     <title>Connexion</title>
 </head>
 <body>
+
+    <?php require 'header.php' ?>
     <main>
         <form action="" method="post">
 
