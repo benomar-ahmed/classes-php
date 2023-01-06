@@ -101,7 +101,19 @@ class User{
         echo "Votre profil a été mis à jour";
     }
 
+    public function isConnected()
+    {
 
+        if(isset($_SESSION['id']) == true){
+            echo "Vous êtes connectés";
+            return True;
+        }
+        
+        else{
+            echo "Vous êtes déconnectés";
+            return False;
+        }
+    }
 }
 
 

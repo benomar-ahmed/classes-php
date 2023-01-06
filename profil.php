@@ -20,7 +20,12 @@ if(isset($_POST['modify'])){
     $modifyuser = new User();
     $modifyuser->update($login,$password,$email,$firstname,$lastname);
     echo $modifyuser->msg_error;
+
+    
 }
+$connectuser = new User();
+$connectuser->isConnected();
+
 
 
 
