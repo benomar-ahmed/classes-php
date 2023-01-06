@@ -80,6 +80,15 @@ class User{
         header("Location: connexion.php");
     }
 
+    public function delete()
+    {
+
+        $requete = mysqli_query($this->base_de_donnee,"DELETE FROM utilisateurs WHERE id = '".$_SESSION['id']."'");
+        session_destroy();
+        header("Location: connexion.php");
+
+    }
+
 
 }
 
