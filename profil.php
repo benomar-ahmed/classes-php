@@ -26,6 +26,34 @@ if(isset($_POST['modify'])){
 $connectuser = new User();
 $connectuser->isConnected();
 
+$getInfos = new User();
+$getInfos->getAllInfos();
+$var_return = $getInfos->getAllInfos();
+var_dump($var_return);
+
+$getLogin = new User();
+$getLogin->getLogin();
+$var_return1 = $getLogin->getLogin();
+var_dump($var_return1);
+
+$getEmail = new User();
+$getEmail->getEmail();
+$var_return2 = $getEmail->getEmail();
+var_dump($var_return2);
+
+$getFirstname = new User();
+$getFirstname ->getFirstname ();
+$var_return3 = $getFirstname ->getFirstname ();
+var_dump($var_return3);
+
+$getLastname = new User();
+$getLastname ->getLastname ();
+$var_return4 = $getLastname ->getLastname ();
+var_dump($var_return4);
+
+
+
+
 
 
 

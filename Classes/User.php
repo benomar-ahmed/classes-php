@@ -56,13 +56,15 @@ class User{
         $this->password = $password;
         
 
-        $requete = mysqli_query($this->base_de_donnee,"SELECT id,login,password FROM utilisateurs WHERE login='$login' and password='$password';");
+        $requete = mysqli_query($this->base_de_donnee,"SELECT id,login,password,email,firstname,lastname FROM utilisateurs WHERE login='$login' and password='$password';");
         $row = $requete->fetch_all();
-
         if($row == true) {
             $_SESSION['id'] = $row[0][0];
             $_SESSION['login'] = $_POST['login'];
             $_SESSION['password'] = $_POST['password'];
+            $_SESSION['email'] = $row[0][3];
+            $_SESSION['firstname'] = $row[0][4];
+            $_SESSION['lastname'] = $row[0][5];
             $msg_error[]="Bonjour ".$_SESSION['login'];
         }
         
@@ -113,6 +115,35 @@ class User{
             echo "Vous êtes déconnectés";
             return False;
         }
+    }
+
+    public function getAllInfos()
+    {
+        
+        $requete = mysqli_query($this->base_de_donnee,"SELECT * from utilisateurs WHERE id = '".$_SESSION['id']."'");
+        $row = $requete->fetch_all();
+        return array($row);
+    }
+
+    public function getLogin()
+    {
+        return $_SESSION['login'];
+    }
+
+    public function getEmail()
+    {
+        return $_SESSION['email'];
+    }
+
+    public function getFirstname()
+    {
+        return $_SESSION['firstname'];
+
+    }
+
+    public function getLastname()
+    {
+        return $_SESSION['lastname'];
     }
 }
 
