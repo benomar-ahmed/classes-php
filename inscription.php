@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
             <label for="verify-passsword">Retapez votre mot de passe :</label>
             <input type="password" name="verify-password" required="required">
 
-            <input type="submit" value="Envoyez" name="submit">
+            <input type="submit" value="S'inscrire" name="submit">
         </form>
 
     </main>

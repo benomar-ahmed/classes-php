@@ -89,6 +89,18 @@ class User{
 
     }
 
+    public function update($login,$password,$email,$firstname,$lastname)
+    {
+        $this->login = $login;
+        $this->password = $password;
+        $this->email =  $email;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+
+        $requete = mysqli_query($this->base_de_donnee,"UPDATE utilisateurs SET login='$login',password = '$password',email='$email',firstname='$firstname',lastname='$lastname' WHERE login='".$_SESSION['login']."'");
+        echo "Votre profil a été mis à jour";
+    }
+
 
 }
 
